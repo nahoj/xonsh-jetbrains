@@ -22,6 +22,9 @@
             fieldName="INSTANCE"
             extensions="xsh"
             fileNames=".xonshrc;xonshrc"/>
+        <lang.syntaxHighlighterFactory
+            language="Xonsh"
+            implementationClass="io.github.xonsh.jetbrains.XonshSyntaxHighlighterFactory"/>
     </extensions>
 
     <extensions defaultExtensionNs="com.redhat.devtools.lsp4ij">
