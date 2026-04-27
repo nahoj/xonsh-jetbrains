@@ -1,0 +1,36 @@
+<idea-plugin>
+    <id>io.github.xonsh.jetbrains</id>
+    <name>Xonsh</name>
+    <vendor>community</vendor>
+    <description><![CDATA[
+        Xonsh shell script support for JetBrains IDEs, backed by
+        <a href="https://github.com/FoamScience/xonsh-language-server">xonsh-language-server</a>
+        via the <a href="https://github.com/redhat-developer/lsp4ij">LSP4IJ</a> client.
+        <br/><br/>
+        Requires <code>xonsh-lsp</code> on PATH:
+        <code>uv tool install 'xonsh-lsp[jedi]'</code>.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.redhat.devtools.lsp4ij</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <fileType
+            name="Xonsh"
+            language="Xonsh"
+            implementationClass="io.github.xonsh.jetbrains.XonshFileType"
+            fieldName="INSTANCE"
+            extensions="xsh"
+            fileNames=".xonshrc;xonshrc"/>
+    </extensions>
+
+    <extensions defaultExtensionNs="com.redhat.devtools.lsp4ij">
+        <server
+            id="xonsh"
+            name="Xonsh Language Server"
+            factoryClass="io.github.xonsh.jetbrains.XonshLspServerFactory"/>
+        <languageMapping
+            language="Xonsh"
+            serverId="xonsh"/>
+    </extensions>
+</idea-plugin>
