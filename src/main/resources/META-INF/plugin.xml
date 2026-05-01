@@ -1,5 +1,5 @@
 <idea-plugin>
-    <id>io.github.xonsh.jetbrains</id>
+    <id>eu.nahoj.xonsh.jetbrains</id>
     <name>Xonsh</name>
     <vendor>community</vendor>
     <description><![CDATA[
@@ -18,20 +18,20 @@
         <fileType
             name="Xonsh"
             language="Xonsh"
-            implementationClass="io.github.xonsh.jetbrains.XonshFileType"
+            implementationClass="eu.nahoj.xonsh.jetbrains.XonshFileType"
             fieldName="INSTANCE"
             extensions="xsh"
             fileNames=".xonshrc;xonshrc"/>
         <lang.syntaxHighlighterFactory
             language="Xonsh"
-            implementationClass="io.github.xonsh.jetbrains.XonshSyntaxHighlighterFactory"/>
+            implementationClass="eu.nahoj.xonsh.jetbrains.XonshSyntaxHighlighterFactory"/>
     </extensions>
 
     <extensions defaultExtensionNs="com.redhat.devtools.lsp4ij">
         <server
             id="xonsh"
             name="Xonsh Language Server"
-            factoryClass="io.github.xonsh.jetbrains.XonshLspServerFactory"/>
+            factoryClass="eu.nahoj.xonsh.jetbrains.XonshLspServerFactory"/>
         <languageMapping
             language="Xonsh"
             serverId="xonsh"/>

@@ -4,8 +4,8 @@ plugins {
     id("org.jetbrains.intellij.platform") version "2.15.0"
 }
 
-group = "io.github.xonsh"
-version = "0.1.0"
+group = "eu.nahoj.xonsh"
+version = "0.2.0"
 
 repositories {
     mavenCentral()

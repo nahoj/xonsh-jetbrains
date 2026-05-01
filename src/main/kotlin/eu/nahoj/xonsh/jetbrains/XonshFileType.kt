@@ -1,4 +1,4 @@
-package io.github.xonsh.jetbrains
+package eu.nahoj.xonsh.jetbrains
 
 import com.intellij.openapi.fileTypes.LanguageFileType
 import javax.swing.Icon
