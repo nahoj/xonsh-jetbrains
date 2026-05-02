@@ -6,10 +6,14 @@ through [LSP4IJ](https://github.com/redhat-developer/lsp4ij).
 
 ## Local IDE (optional, avoids re-downloading SDK)
 
-Add to `~/.gradle/gradle.properties`:
+Create `local.properties` at the project root:
 ```properties
-ideaLocalPath=/path/to/your/intellij-idea-ultimate
+# localIdePath=/Applications/PyCharm Professional.app/Contents
+# localIdePath=/opt/pycharm-professional
+localIdePath=/path/to/your/current/choice
 ```
+
+`runIde` uses `localIdePath` from `local.properties` when set, and downloads IntelliJ from Maven when it is not set.
 
 ## Prerequisites
 

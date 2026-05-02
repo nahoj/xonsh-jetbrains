@@ -3,4 +3,6 @@
 .intellijPlatform
 build/
 out/
+
+/local.properties
 *.iml
