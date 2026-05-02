@@ -11,6 +11,7 @@
         <code>uv tool install 'xonsh-lsp[jedi]'</code>.
     ]]></description>
 
+    <depends>com.intellij.modules.lang</depends>
     <depends>com.intellij.modules.platform</depends>
     <depends>com.redhat.devtools.lsp4ij</depends>
 
@@ -25,6 +26,12 @@
         <lang.syntaxHighlighterFactory
             language="Xonsh"
             implementationClass="eu.nahoj.xonsh.jetbrains.XonshSyntaxHighlighterFactory"/>
+        <lang.parserDefinition
+            language="Xonsh"
+            implementationClass="eu.nahoj.xonsh.jetbrains.XonshParserDefinition"/>
+        <lang.commenter
+            language="Xonsh"
+            implementationClass="eu.nahoj.xonsh.jetbrains.XonshCommenter"/>
     </extensions>
 
     <extensions defaultExtensionNs="com.redhat.devtools.lsp4ij">
