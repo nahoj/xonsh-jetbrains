@@ -37,3 +37,9 @@ gradle wrapper                # one-time, generates ./gradlew
 
 In the sandbox IDE, open a `.xsh` file — LSP4IJ should spawn `xonsh-lsp`
 and provide completion/hover/diagnostics/goto/references.
+
+## Credits
+
+Syntax highlighting uses the TextMate grammar from
+[vscode-xonsh](https://github.com/jnoortheen/xonsh-vscode-ext)
+(`dist/tmlang-xonsh.json`), © 2020 Noortheen Raja NJ, MIT-licensed.

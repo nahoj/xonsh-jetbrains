@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "eu.nahoj.xonsh"
-version = "0.3.2"
+version = "0.4.0"
 
 // Load local.properties
 val localProperties: Properties = Properties()
@@ -40,6 +40,7 @@ dependencies {
         }
         // LSP4IJ from Marketplace; must match a version compatible with build 261.
         plugin("com.redhat.devtools.lsp4ij", "0.13.0")
+        bundledPlugin("org.jetbrains.plugins.textmate")
         testFramework(TestFrameworkType.Platform)
     }
 }

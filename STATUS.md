@@ -7,14 +7,24 @@
   → Jedi for completion/hover/goto/references/diagnostics. 302 upstream tests pass.
   Server installed via `uv tool install 'xonsh-lsp[jedi]'`.
 
-- **IDE client**: native IntelliJ plugin using LSP4IJ (com.redhat.devtools.lsp4ij)
-  as the LSP client. The plugin declares a Xonsh FileType (.xsh, .xonshrc) and starts
-  `xonsh-lsp` over stdio.
+- **IDE client**: IntelliJ plugin using LSP4IJ (com.redhat.devtools.lsp4ij)
+  as the LSP client. No custom Xonsh `Language` / `FileType` — the bundled TextMate
+  plugin claims `.xsh` / `.xonshrc` via the grammar bundle, and LSP4IJ binds the
+  server through `fileNamePatternMapping` (`*.xsh;.xonshrc;xonshrc`,
+  languageId=`xonsh`). `xonsh-lsp` runs over stdio.
 
-- **Syntax highlighting**: native IntelliJ lexer (XonshLexer, LexerBase) — simpler than
-  juggling TextMate bundle paths inside a jar. Covers Python + xonsh extensions
-  ($, @, !, env vars). A TM grammar (recycled from vscode-xonsh) could eventually
-  replace it for finer coverage.
+- **Syntax highlighting**: TextMate grammar recycled from vscode-xonsh (MIT).
+  Shipped as a VS Code-style bundle under `src/main/resources/textmate/xonsh/`
+  (`package.json` + `language-configuration.json` + `syntaxes/xonsh.tmLanguage.json`)
+  and registered via `com.intellij.textmate.bundleProvider`. Provider extracts to
+  `PathManager.getSystemDir()/xonsh-textmate/xonsh/` because the TM plugin reads
+  bundles from a real filesystem `Path` (NIO), not from the jar.
+
+  Note: vscode-xonsh's `dist/tmlang-xonsh.json` leaves the custom `$apply` macro
+  unresolved (their `postbuild` only runs `js-yaml`). VS Code's TM engine tolerates
+  it; IntelliJ's does not — line comments and most strings/regex broke. We resolve
+  `$apply` ourselves with `scripts/resolve_grammar.py` (PyYAML) before shipping.
+  Re-run after pulling upstream grammar changes.
 
 - **Executable resolution**: EnvironmentUtil.getValue("PATH") to locate `xonsh-lsp`
   since an IDE launched in GUI mode does not inherit the shell PATH. The executable
@@ -26,42 +36,33 @@
 
 ## Working (verified in runIde sandbox)
 
-- [x] Xonsh FileType recognized (.xsh, .xonshrc, xonsh shebang)
+- [x] `.xsh` / `.xonshrc` / xonsh shebang recognized (via TM bundle)
 - [x] LSP server starts (visible in View → Tool Windows → Language Servers)
 - [x] Tooltips/hover on symbols
-- [x] Basic highlighting (keywords, strings, comments, numbers, builtins, env vars)
 - [x] buildPlugin produces an installable .zip (Settings → Plugins → Install from Disk)
 - [x] goto definition (Ctrl+B)
 - [x] find usages (Alt+F7)
 - [x] completion (Ctrl+Space)
+- [x] Full Python-grade highlighting via vscode-xonsh TextMate grammar
+      (keywords, strings, f-strings, regex, numbers, decorators, builtins…)
 
 ## Known broken / to fix
 
-- [ ] Highlighting of shell ops $()  !()  @()  $[]  ![] — the 2-char sequences are
-      not emitted as a single SHELL_OP token; the `(` falls into OPERATOR
-- [ ] No XONSH_* entry in Settings → Editor → Color Scheme because ColorSettingsPage
-      is not registered
-- [ ] Rename (textDocument/rename) not implemented on the xonsh-lsp side — decision: defer
+- [ ] Shell ops `$() !() @() $[] ![]` and `$VAR` not in the vscode-xonsh grammar
+      — to be added in a follow-up step (either patch the bundled grammar or
+      register a TM injection)
 
 ## Backlog / discussed but not started
 
-- Full TextMate grammar (recycle vscode-xonsh dist/tmlang-xonsh.json once
-  the `$apply` is resolved via node rebuild)
-- ColorSettingsPage to expose the XONSH_* keys in Settings
-- Upstream rename contribution to xonsh-language-server (FoamScience)
+- Add shell-op + env-var rules to the bundled grammar (next step)
 - Open untilBuild (currently "261.*") — to be relaxed before Marketplace publish
 - Icon for the FileType (null for now)
 - Plugin tests
 
-## Tech stack
+## External components
 
 | Component                       | Version                                  |
 |---------------------------------|------------------------------------------|
-| IntelliJ Platform               | 2026.1 (local) / 2025.3 (Maven fallback) |
-| IntelliJ Platform Gradle Plugin | 2.15.0                                   |
-| Kotlin                          | 2.3.0                                    |
-| Gradle wrapper                  | 9.6.0-milestone-1                        |
-| Build JDK                       | 21                                       |
 | LSP4IJ                          | 0.13.0                                   |
 | xonsh-lsp                       | 0.2.0                                    |
 | tree-sitter-xonsh               | 0.2.0                                    |
@@ -71,13 +72,11 @@
 
 ```sh
 # Build
-JAVA_HOME=$HOME/.local/share/mise/installs/java/temurin-21.0.10+7.0.LTS \
-  ./gradlew buildPlugin
+./gradlew buildPlugin
 # → build/distributions/xonsh-jetbrains-x.y.z.zip
 
 # IDE sandbox
-JAVA_HOME=$HOME/.local/share/mise/installs/java/temurin-21.0.10+7.0.LTS \
-  ./gradlew runIde
+./gradlew runIde
 
 # Runtime prerequisites
 uv tool install 'xonsh-lsp[jedi]'   # once

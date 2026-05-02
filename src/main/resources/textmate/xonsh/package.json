@@ -1,0 +1,25 @@
+{
+  "name": "xonsh",
+  "displayName": "Xonsh",
+  "version": "0.3.3",
+  "description": "Xonsh TextMate grammar (recycled from vscode-xonsh, MIT).",
+  "contributes": {
+    "languages": [
+      {
+        "id": "xonsh",
+        "aliases": ["Xonsh", "xsh"],
+        "extensions": [".xsh"],
+        "filenames": [".xonshrc", "xonshrc"],
+        "firstLine": "^#!\\s*/?.*\\bxonsh[0-9.-]*\\b",
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "xonsh",
+        "scopeName": "source.xonsh",
+        "path": "./syntaxes/xonsh.tmLanguage.json"
+      }
+    ]
+  }
+}
