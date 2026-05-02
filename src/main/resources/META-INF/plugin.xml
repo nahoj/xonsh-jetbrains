@@ -25,20 +25,20 @@
             fileNames=".xonshrc;xonshrc"/>
         <lang.syntaxHighlighterFactory
             language="Xonsh"
-            implementationClass="eu.nahoj.xonsh.jetbrains.XonshSyntaxHighlighterFactory"/>
+            implementationClass="eu.nahoj.xonsh.jetbrains.local.XonshSyntaxHighlighterFactory"/>
         <lang.parserDefinition
             language="Xonsh"
-            implementationClass="eu.nahoj.xonsh.jetbrains.XonshParserDefinition"/>
+            implementationClass="eu.nahoj.xonsh.jetbrains.local.XonshParserDefinition"/>
         <lang.commenter
             language="Xonsh"
-            implementationClass="eu.nahoj.xonsh.jetbrains.XonshCommenter"/>
+            implementationClass="eu.nahoj.xonsh.jetbrains.local.XonshCommenter"/>
     </extensions>
 
     <extensions defaultExtensionNs="com.redhat.devtools.lsp4ij">
         <server
             id="xonsh"
             name="Xonsh Language Server"
-            factoryClass="eu.nahoj.xonsh.jetbrains.XonshLspServerFactory"/>
+            factoryClass="eu.nahoj.xonsh.jetbrains.lsp.XonshLspServerFactory"/>
         <languageMapping
             language="Xonsh"
             serverId="xonsh"/>

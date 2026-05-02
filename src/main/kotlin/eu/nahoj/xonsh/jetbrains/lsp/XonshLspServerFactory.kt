@@ -1,4 +1,4 @@
-package eu.nahoj.xonsh.jetbrains
+package eu.nahoj.xonsh.jetbrains.lsp
 
 import com.intellij.openapi.project.Project
 import com.redhat.devtools.lsp4ij.LanguageServerFactory

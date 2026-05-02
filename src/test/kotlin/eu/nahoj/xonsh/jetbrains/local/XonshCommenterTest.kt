@@ -1,10 +1,12 @@
-package eu.nahoj.xonsh.jetbrains
+package eu.nahoj.xonsh.jetbrains.local
 
 import com.intellij.lang.LanguageCommenters
 import com.intellij.openapi.actionSystem.IdeActions
 import com.intellij.psi.util.PsiUtilCore
 import com.intellij.testFramework.PlatformTestUtil
 import com.intellij.testFramework.fixtures.BasePlatformTestCase
+import eu.nahoj.xonsh.jetbrains.XonshFileType
+import eu.nahoj.xonsh.jetbrains.XonshLanguage
 
 class XonshCommenterTest : BasePlatformTestCase() {
     fun testLineCommentActionCommentsXshFile() {

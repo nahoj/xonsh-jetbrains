@@ -1,4 +1,4 @@
-package eu.nahoj.xonsh.jetbrains
+package eu.nahoj.xonsh.jetbrains.local
 
 import com.intellij.lang.ASTNode
 import com.intellij.lang.ParserDefinition
@@ -13,6 +13,8 @@ import com.intellij.psi.PsiFile
 import com.intellij.psi.TokenType
 import com.intellij.psi.tree.IFileElementType
 import com.intellij.psi.tree.TokenSet
+import eu.nahoj.xonsh.jetbrains.XonshFileType
+import eu.nahoj.xonsh.jetbrains.XonshLanguage
 
 private val XONSH_FILE = IFileElementType(XonshLanguage)
 private val XONSH_COMMENTS = TokenSet.create(XonshTokenTypes.COMMENT)

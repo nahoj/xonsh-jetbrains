@@ -1,4 +1,4 @@
-package eu.nahoj.xonsh.jetbrains
+package eu.nahoj.xonsh.jetbrains.local
 
 import com.intellij.lexer.LexerBase
 import com.intellij.psi.TokenType

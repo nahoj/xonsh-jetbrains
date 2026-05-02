@@ -1,6 +1,7 @@
-package eu.nahoj.xonsh.jetbrains
+package eu.nahoj.xonsh.jetbrains.local
 
 import com.intellij.psi.tree.IElementType
+import eu.nahoj.xonsh.jetbrains.XonshLanguage
 
 class XonshTokenType(debugName: String) : IElementType(debugName, XonshLanguage)
 
