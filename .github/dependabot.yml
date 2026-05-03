@@ -3,7 +3,12 @@
 
 version: 2
 updates:
-  - package-ecosystem: "gradle" # See documentation for possible values
+  - package-ecosystem: "gradle"
     directory: "/" # Location of package manifests
     schedule:
       interval: "weekly"
+    # Note: Dependabot can't parse most of build.gradle.kts because of IJ Platform's DSL
+    groups:
+      gradle:
+        patterns:
+          - "*"
