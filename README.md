@@ -1,5 +1,7 @@
 This is a plugin that adds [Xonsh](https://xon.sh/) language support to JetBrains IDEs (IntelliJ, PyCharm, etc.).
 
+**Status:** It works. I intend to fix bugs and possibly make improvements over time. Issues and PRs are welcome!
+
 ## Features
 
 Features are basically that of [xonsh-language-server](https://github.com/FoamScience/xonsh-language-server):
