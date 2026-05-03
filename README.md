@@ -1,45 +1,51 @@
-# xonsh-jetbrains
+This is a plugin that adds [Xonsh](https://xon.sh/) language support to JetBrains IDEs (IntelliJ, PyCharm, etc.).
 
-Xonsh language support for JetBrains IDEs, backed by
-[xonsh-language-server](https://github.com/FoamScience/xonsh-language-server)
-through [LSP4IJ](https://github.com/redhat-developer/lsp4ij).
+## Features
 
-## Local IDE (optional, avoids re-downloading SDK)
+Features are basically that of [xonsh-language-server](https://github.com/FoamScience/xonsh-language-server):
 
-Create `local.properties` at the project root:
-```properties
-# localIdePath=/Applications/PyCharm Professional.app/Contents
-# localIdePath=/opt/pycharm-professional
-localIdePath=/path/to/your/current/choice
-```
+- Syntax highlighting
+- Code completion both in Python code and subprocess commands
+- Inspections / diagnostics
+- Documentation on hover, and other useful info such as env var values.
+- Go To Declaration, Show/Find Usages
+- and more
 
-`runIde` uses `localIdePath` from `local.properties` when set, and downloads IntelliJ from Maven when it is not set.
+## Install
 
-## Prerequisites
+I haven't put the plugin on the Marketplace yet, I will if anyone expresses interest!
 
-- JDK 21 (e.g. `mise use java@21` or `sdk install java 21.0.5-tem`)
-- Gradle 8.10+ (only for bootstrap; build uses the wrapper afterwards)
-- `xonsh-lsp` on `PATH`:
+### Prerequisites
+
+- This plugin was tested on Linux in IntelliJ and PyCharm 2026.1. Compatibility with other environments unknown.
+- [LSP4IJ plugin](https://plugins.jetbrains.com/plugin/23257-lsp4ij)
+- JDK 21 (will download on build if you don't have it installed)
+- `xonsh-lsp` (only tested with the built-in `jedi` backend):
   ```sh
   uv tool install 'xonsh-lsp[jedi]'
   # mise use -g 'pipx:xonsh-lsp[jedi]' was not working: LSP4IJ couldn't start it.
   ```
 
-Targets IntelliJ Platform 2026.1 (build 261).
+### Build & install
 
-## Build & run
+- Run `./gradlew buildPlugin`
+- In your IDE, Settings > Plugins > ⋮ > Install Plugin from Disk > `.../xonsh-jetbrains/build/distributions/*.zip`
 
-```sh
-gradle wrapper                # one-time, generates ./gradlew
-./gradlew runIde              # launches a sandbox IDE with the plugin loaded
-./gradlew buildPlugin         # produces build/distributions/*.zip for install
+## Development
+
+`./gradlew runIde` launches a sandbox IDE with the plugin loaded.
+
+By default, it downloads IntelliJ from Maven. To skip the download and use your locally installed IDE, create `local.properties` at the project root:
+
+```properties
+#localIdePath=/Applications/PyCharm Professional.app/Contents
+#localIdePath=/home/<user>/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate
+#localIdePath=/snap/pycharm-community/current
+localIdePath=/path/to/your/current/choice
 ```
-
-In the sandbox IDE, open a `.xsh` file — LSP4IJ should spawn `xonsh-lsp`
-and provide completion/hover/diagnostics/goto/references.
 
 ## Credits
 
-Syntax highlighting uses the TextMate grammar from
-[vscode-xonsh](https://github.com/jnoortheen/xonsh-vscode-ext)
-(`dist/tmlang-xonsh.json`), © 2020 Noortheen Raja NJ, MIT-licensed.
+Syntax highlighting uses the TextMate grammar from [vscode-xonsh](https://github.com/jnoortheen/vscode-xonsh), itself based on [MagicPython](https://github.com/MagicStack/MagicPython).
+
+Other features are provided by [xonsh-language-server](https://github.com/FoamScience/xonsh-language-server).
