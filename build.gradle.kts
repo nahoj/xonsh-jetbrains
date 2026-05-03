@@ -56,3 +56,16 @@ intellijPlatform {
 kotlin {
     jvmToolchain(21)
 }
+
+val resolveGrammar by tasks.registering(Exec::class) {
+    description = "Compile TextMate grammar JSON from vscode-xonsh's source YAML"
+    group = "build"
+    commandLine("python3", "scripts/resolve_grammar.py")
+    inputs.dir("../vscode-xonsh/src/tmlang")
+    inputs.file("scripts/resolve_grammar.py")
+    outputs.file("src/main/resources/textmate/xonsh/syntaxes/xonsh.tmLanguage.json")
+}
+
+tasks.named("processResources") {
+    dependsOn(resolveGrammar)
+}

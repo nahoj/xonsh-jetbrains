@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
-"""Resolve `$apply` macros in vscode-xonsh's grammar YAML and emit JSON.
+"""Compile TextMate grammar JSON from vscode-xonsh's source YAML.
 
-vscode-xonsh ships `dist/tmlang-xonsh.json` produced by `js-yaml`, which leaves
-the custom `$apply` macro unexpanded. VS Code's TextMate engine tolerates the
-resulting unresolved `#includes`; IntelliJ's does not. Run this once after every
-upstream grammar update (`vscode-xonsh` checked out as a sibling directory).
+This implements file-inclusion logic similar to that of the `syntaxdev`
+tool. I don't know if it is exactly the same, but it seems good enough
+to build our grammar file.
 """
 import json
 import re
@@ -18,21 +17,17 @@ SRC = (HERE / "../../vscode-xonsh/src/tmlang").resolve()
 OUT = (HERE / "../src/main/resources/textmate/xonsh/syntaxes/xonsh.tmLanguage.json").resolve()
 
 
-def substitute(text: str, vars: dict) -> str:
-    # Replace ${name} with the value. Use a function form to avoid backref
-    # interpretation in re.sub.
-    def repl(m):
-        name = m.group(1)
-        return vars.get(name, m.group(0))
-    return re.sub(r"\$\{(\w+)\}", repl, text)
-
-
 def load_apply(entry: dict) -> dict:
     path = SRC / entry["file"]
     text = path.read_text()
-    vars = entry.get("vars", {})
-    # Default empty string for any unspecified ${name}, otherwise YAML may break.
-    text = re.sub(r"\$\{(\w+)\}", lambda m: vars.get(m.group(1), ""), text)
+    variables = entry.get("vars", {})
+    def _subst(m):
+        name = m.group(1)
+        if name not in variables:
+            print(f"warn: undefined var ${{{name}}} in {entry['file']}", file=sys.stderr)
+        # If undefined, leave ${name} as-is like syntaxdev does
+        return variables.get(name, m.group(0))
+    text = re.sub(r"\$\{(\w+)}", _subst, text)
     return yaml.safe_load(text)
 
 

@@ -46,15 +46,8 @@
 - [x] Full Python-grade highlighting via vscode-xonsh TextMate grammar
       (keywords, strings, f-strings, regex, numbers, decorators, builtins…)
 
-## Known broken / to fix
-
-- [ ] Shell ops `$() !() @() $[] ![]` and `$VAR` not in the vscode-xonsh grammar
-      — to be added in a follow-up step (either patch the bundled grammar or
-      register a TM injection)
-
 ## Backlog / discussed but not started
 
-- Add shell-op + env-var rules to the bundled grammar (next step)
 - Open untilBuild (currently "261.*") — to be relaxed before Marketplace publish
 - Icon for the FileType (null for now)
 - Plugin tests
