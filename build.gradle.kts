@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "eu.nahoj.xonsh"
-version = "0.4.0"
+version = "1.0.0"
 
 // Load local.properties
 val localProperties: Properties = Properties()
@@ -31,15 +31,14 @@ dependencies {
 
     intellijPlatform {
         // Set e.g. `localIdePath=/snap/pycharm-community/current` in `local.properties`.
-        // Falls back to downloading IU 2025.3 from Maven if unset.
+        // Falls back to downloading the IDE from Maven if unset.
         val localPath = localProperties.getProperty("localIdePath")
         if (localPath != null) {
             local(localPath)
         } else {
-            intellijIdeaUltimate("2025.3")
+            pycharm("2026.1.1")
         }
-        // LSP4IJ from Marketplace; must match a version compatible with build 261.
-        plugin("com.redhat.devtools.lsp4ij", "0.13.0")
+        plugin("com.redhat.devtools.lsp4ij", "0.19.3")
         bundledPlugin("org.jetbrains.plugins.textmate")
         testFramework(TestFrameworkType.Platform)
     }
@@ -48,7 +47,8 @@ dependencies {
 intellijPlatform {
     pluginConfiguration {
         ideaVersion {
-            sinceBuild = "261"
+            sinceBuild = "242" // Java 21
+            untilBuild = null
         }
     }
 }

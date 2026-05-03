@@ -17,7 +17,7 @@ I haven't put the plugin on the Marketplace yet, I will if anyone expresses inte
 
 ### Prerequisites
 
-- This plugin was tested on Linux in IntelliJ and PyCharm 2026.1. Compatibility with other environments unknown.
+- IntelliJ, PyCharm, etc. v2024.2+.
 - [LSP4IJ plugin](https://plugins.jetbrains.com/plugin/23257-lsp4ij)
 - JDK 21 (will download on build if you don't have it installed)
 - `xonsh-lsp` (only tested with the built-in `jedi` backend):
@@ -25,6 +25,7 @@ I haven't put the plugin on the Marketplace yet, I will if anyone expresses inte
   uv tool install 'xonsh-lsp[jedi]'
   # mise use -g 'pipx:xonsh-lsp[jedi]' was not working: LSP4IJ couldn't start it.
   ```
+- Tested on Linux only. I expect it to work on other systems as long as `xonsh-lsp` does.
 
 ### Build & install
 
