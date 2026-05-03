@@ -60,6 +60,10 @@ kotlin {
 val resolveGrammar by tasks.registering(Exec::class) {
     description = "Compile TextMate grammar JSON from vscode-xonsh's source YAML"
     group = "build"
+    // TODO either make vscode-xonsh a proper submodule/dependency, or fork the grammar files
+    onlyIf {
+        file("../vscode-xonsh/src/tmlang").exists()
+    }
     commandLine("python3", "scripts/resolve_grammar.py")
     inputs.dir("../vscode-xonsh/src/tmlang")
     inputs.file("scripts/resolve_grammar.py")

@@ -1949,7 +1949,7 @@
         {
           "name": "invalid.illegal.operator.python",
           "comment": "We don't want `!` to flash when we're typing `!=`",
-          "match": "!$\\b"
+          "match": "$!\\b"
         }
       ]
     },
