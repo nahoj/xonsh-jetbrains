@@ -17,14 +17,15 @@ Features are basically that of [xonsh-language-server](https://github.com/FoamSc
 
 - IntelliJ, PyCharm, etc. v2024.2+
 - [LSP4IJ plugin](https://plugins.jetbrains.com/plugin/23257-lsp4ij)
-- `xonsh-lsp` (I only tested the built-in `jedi` backend, but others should work):
+- `xonsh-lsp` must be installed **and in your `$PATH`**. Install with e.g.:
    ```sh
    uv tool install 'xonsh-lsp[jedi]'
    # or
    pipx install 'xonsh-lsp[jedi]'
    # mise use -g 'pipx:xonsh-lsp[jedi]' was not working: LSP4IJ couldn't start it.
    ```
-- Tested on Linux only. I expect it to work on other systems provided `xonsh-lsp` does.
+  - Note: I only tested `xonsh-lsp` with the built-in `jedi` backend, but I would expect others to work as well.
+- The plugin is known to work on Linux and macOS. I expect it to work on Windows provided `xonsh-lsp` does as well.
 
 ## Install
 
