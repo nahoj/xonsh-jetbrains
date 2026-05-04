@@ -5,7 +5,7 @@
 
 This is a plugin that adds [Xonsh](https://xon.sh/) language support to JetBrains IDEs (IntelliJ, PyCharm, etc.).
 
-You can install it directly from your IDE, from the [Releases](https://github.com/nahoj/xonsh-jetbrains/releases) page, or build it from source (see below).
+You can install it directly from your IDE, or from the [Marketplace](https://plugins.jetbrains.com/plugin/31595), the [Releases](https://github.com/nahoj/xonsh-jetbrains/releases) page, or build it from source (see below).
 
 **Status:** It works. I intend to fix bugs and possibly make improvements over time. Issues and PRs are welcome!
 
@@ -31,7 +31,6 @@ Features are basically that of [xonsh-language-server](https://github.com/FoamSc
    pipx install 'xonsh-lsp[jedi]'
    # mise use -g 'pipx:xonsh-lsp[jedi]' was not working: LSP4IJ couldn't start it.
    ```
-  - Note: I only tested `xonsh-lsp` with the built-in `jedi` backend, but I would expect others to work as well.
 
 The plugin is known to work on Linux and macOS. I expect it to work on Windows if `xonsh-lsp` does as well.
 
