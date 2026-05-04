@@ -6,8 +6,6 @@
         Xonsh shell script support for JetBrains IDEs, backed by
         <a href="https://github.com/FoamScience/xonsh-language-server">xonsh-language-server</a>
         via the <a href="https://github.com/redhat-developer/lsp4ij">LSP4IJ</a> client.
-        Syntax highlighting via a TextMate grammar recycled from
-        <a href="https://github.com/jnoortheen/xonsh-vscode-ext">vscode-xonsh</a> (MIT).
         <br/><br/>
         Requires <code>xonsh-lsp</code> on PATH:
         <code>uv tool install 'xonsh-lsp[jedi]'</code>.
