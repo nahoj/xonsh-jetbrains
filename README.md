@@ -34,6 +34,10 @@ I haven't put the plugin on the Marketplace yet, I will if anyone expresses inte
 1. Get [the latest release](https://github.com/nahoj/xonsh-jetbrains/releases/latest).
 2. In your IDE, Settings > Plugins > ⋮ > Install Plugin from Disk > `xonsh-jetbrains-x.y.z.zip`.
 
+## Known Issue
+
+If *.xsh or *.xonshrc files are registered as Python in your IDE (which PyCharm may suggest), the plugin will not work on them. To fix it, go to Settings → Editor → File Types → Python and remove xsh extensions, then restart the IDE.
+
 ## Install from source
 
 Requires JDK 21 (will download on build if you don't have it installed).
