@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "eu.nahoj.xonsh"
-version = "1.1.0"
+version = "1.1.1"
 
 // Load local.properties
 val localProperties: Properties = Properties()

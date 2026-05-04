@@ -15,7 +15,7 @@ Features are basically that of [xonsh-language-server](https://github.com/FoamSc
 
 ## Prerequisites
 
-- IntelliJ, PyCharm, etc. v2024.2+
+- IntelliJ-based IDE (PyCharm, etc.) v2024.2+
 - [LSP4IJ plugin](https://plugins.jetbrains.com/plugin/23257-lsp4ij)
 - `xonsh-lsp` must be installed **and in your `$PATH`**. Install with e.g.:
    ```sh
@@ -65,3 +65,5 @@ localIdePath=/snap/pycharm-community/current
 Syntax highlighting uses the TextMate grammar from [vscode-xonsh](https://github.com/jnoortheen/vscode-xonsh), itself based on [MagicPython](https://github.com/MagicStack/MagicPython).
 
 Other features are provided by [xonsh-language-server](https://github.com/FoamScience/xonsh-language-server).
+
+Logo [from the Xonsh project](https://github.com/xonsh/logo) (MIT License).
