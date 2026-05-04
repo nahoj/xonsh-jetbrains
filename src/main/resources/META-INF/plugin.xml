@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>eu.nahoj.xonsh.jetbrains</id>
     <name>Xonsh</name>
-    <vendor>community</vendor>
+    <vendor>Johan Grande</vendor>
     <description><![CDATA[
         Xonsh shell script support for JetBrains IDEs, backed by
         <a href="https://github.com/FoamScience/xonsh-language-server">xonsh-language-server</a>

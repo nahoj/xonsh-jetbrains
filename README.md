@@ -1,4 +1,11 @@
+[![JetBrains Marketplace](https://img.shields.io/jetbrains/plugin/v/31595?label=Marketplace)](https://plugins.jetbrains.com/plugin/31595)
+[![JetBrains Marketplace Downloads](https://img.shields.io/jetbrains/plugin/d/31595)](https://plugins.jetbrains.com/plugin/31595)
+![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/nahoj/xonsh-jetbrains/total)
+![GitHub commits since latest release](https://img.shields.io/github/commits-since/nahoj/xonsh-jetbrains/latest)
+
 This is a plugin that adds [Xonsh](https://xon.sh/) language support to JetBrains IDEs (IntelliJ, PyCharm, etc.).
+
+You can install it directly from your IDE, from the [Releases](https://github.com/nahoj/xonsh-jetbrains/releases) page, or build it from source (see below).
 
 **Status:** It works. I intend to fix bugs and possibly make improvements over time. Issues and PRs are welcome!
 
@@ -16,7 +23,7 @@ Features are basically that of [xonsh-language-server](https://github.com/FoamSc
 ## Prerequisites
 
 - IntelliJ-based IDE (PyCharm, etc.) v2024.2+
-- [LSP4IJ plugin](https://plugins.jetbrains.com/plugin/23257-lsp4ij)
+- [LSP4IJ plugin](https://plugins.jetbrains.com/plugin/23257-lsp4ij) (installed automatically)
 - `xonsh-lsp` must be installed **and in your `$PATH`**. Install with e.g.:
    ```sh
    uv tool install 'xonsh-lsp[jedi]'
@@ -25,18 +32,12 @@ Features are basically that of [xonsh-language-server](https://github.com/FoamSc
    # mise use -g 'pipx:xonsh-lsp[jedi]' was not working: LSP4IJ couldn't start it.
    ```
   - Note: I only tested `xonsh-lsp` with the built-in `jedi` backend, but I would expect others to work as well.
-- The plugin is known to work on Linux and macOS. I expect it to work on Windows provided `xonsh-lsp` does as well.
 
-## Install
-
-I haven't put the plugin on the Marketplace yet, I will if anyone expresses interest!
-
-1. Get [the latest release](https://github.com/nahoj/xonsh-jetbrains/releases/latest).
-2. In your IDE, Settings > Plugins > ⋮ > Install Plugin from Disk > `xonsh-jetbrains-x.y.z.zip`.
+The plugin is known to work on Linux and macOS. I expect it to work on Windows if `xonsh-lsp` does as well.
 
 ## Known Issue
 
-If *.xsh or *.xonshrc files are registered as Python in your IDE (which PyCharm may suggest), the plugin will not work on them. To fix it, go to Settings → Editor → File Types → Python and remove xsh extensions, then restart the IDE.
+If `*.xsh` / `*.xonshrc` files are registered as Python in your IDE (which PyCharm may suggest), the plugin will not work on them. To fix it, go to Settings → Editor → File Types → Python and remove xsh extensions, then restart the IDE.
 
 ## Install from source
 
