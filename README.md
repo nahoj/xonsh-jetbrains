@@ -31,7 +31,7 @@ Features are basically that of [xonsh-language-server](https://github.com/FoamSc
 
 I haven't put the plugin on the Marketplace yet, I will if anyone expresses interest!
 
-1. Get the latest zip from [the Releases page](https://github.com/nahoj/xonsh-jetbrains/releases).
+1. Get [the latest release](https://github.com/nahoj/xonsh-jetbrains/releases/latest).
 2. In your IDE, Settings > Plugins > ⋮ > Install Plugin from Disk > `xonsh-jetbrains-x.y.z.zip`.
 
 ## Install from source
