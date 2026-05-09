@@ -42,6 +42,7 @@ dependencies {
         plugin("com.redhat.devtools.lsp4ij", "0.19.3")
         bundledPlugin("org.jetbrains.plugins.textmate")
         testFramework(TestFrameworkType.Platform)
+        pluginVerifier("1.402") // Temporary pin because of failure with 1.403
     }
 }
 
