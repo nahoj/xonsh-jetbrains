@@ -16,6 +16,10 @@
     <depends>com.redhat.devtools.lsp4ij</depends>
     <depends>org.jetbrains.plugins.textmate</depends>
 
+    <extensions defaultExtensionNs="com.intellij">
+        <notificationGroup id="Xonsh Language Server" displayType="BALLOON"/>
+    </extensions>
+
     <extensions defaultExtensionNs="com.intellij.textmate">
         <bundleProvider implementation="eu.nahoj.xonsh.jetbrains.textmate.XonshTmBundleProvider"/>
     </extensions>

@@ -5,14 +5,14 @@ import com.intellij.util.EnvironmentUtil
 import com.redhat.devtools.lsp4ij.server.ProcessStreamConnectionProvider
 import java.io.File
 
-class XonshLspServer(project: Project) : ProcessStreamConnectionProvider(
-    listOf(resolveExecutable()),
+class XonshLspServer(project: Project, serverCommand: List<String>? = null) : ProcessStreamConnectionProvider(
+    serverCommand ?: listOf(resolveFromPath()),
     project.basePath,
 ) {
     companion object {
         // IntelliJ as a GUI app doesn't source shell rc files, so PATH is truncated.
         // Walk EnvironmentUtil's real user PATH to find the actual xonsh-lsp binary.
-        fun resolveExecutable(): String {
+        fun resolveFromPath(): String {
             val userPath = EnvironmentUtil.getValue("PATH") ?: ""
             return userPath.split(File.pathSeparatorChar)
                 .map { File(it, "xonsh-lsp") }
