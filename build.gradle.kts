@@ -1,5 +1,5 @@
 import org.jetbrains.intellij.platform.gradle.TestFrameworkType
-import java.util.Properties
+import java.util.*
 
 plugins {
     id("java")
@@ -38,6 +38,7 @@ dependencies {
             local(localPath)
         } else {
             pycharm("2026.1.1")
+            jetbrainsRuntime()
         }
         plugin("com.redhat.devtools.lsp4ij", "0.19.3")
         bundledPlugin("org.jetbrains.plugins.textmate")
@@ -56,7 +57,10 @@ intellijPlatform {
 }
 
 kotlin {
-    jvmToolchain(21)
+    jvmToolchain {
+        languageVersion.set(JavaLanguageVersion.of(21))
+        vendor.set(JvmVendorSpec.JETBRAINS)
+    }
 }
 
 val resolveGrammar by tasks.registering(Exec::class) {
