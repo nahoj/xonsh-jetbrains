@@ -1,14 +1,24 @@
+<!--suppress PluginXmlI18n -->
 <idea-plugin>
     <id>eu.nahoj.xonsh.jetbrains</id>
     <name>Xonsh</name>
     <vendor>Johan Grande</vendor>
     <description><![CDATA[
-        Xonsh shell script support for JetBrains IDEs, backed by
-        <a href="https://github.com/FoamScience/xonsh-language-server">xonsh-language-server</a>
-        via the <a href="https://github.com/redhat-developer/lsp4ij">LSP4IJ</a> client.
-        <br/><br/>
-        Requires <code>xonsh-lsp</code> on PATH:
-        <code>uv tool install 'xonsh-lsp[jedi]'</code>.
+        <a href="https://xon.sh/">Xonsh</a> shell script support:
+        <ul>
+            <li>Syntax highlighting</li>
+            <li>Code completion</li>
+            <li>Inspections / diagnostics</li>
+            <li>Documentation on hover, and other useful info such as env var values</li>
+            <li>Go To Declaration, Show/Find Usages</li>
+            <li>and more</li>
+        </ul>
+
+        <p>Most features are provided by <a href="https://github.com/FoamScience/xonsh-language-server">xonsh-language-server</a> via <a href="https://plugins.jetbrains.com/plugin/23257-lsp4ij">LSP4IJ</a>. The plugin includes a TextMate grammar for syntax highlighting outside LSP scope.</p>
+
+        <p><code>xonsh-lsp</code> is run with <code>uvx</code> or <code>pipx</code> by default. If installed manually, either put it on your <code>PATH</code> or specify a custom command in Language Server settings. <code>xonsh-lsp</code> supports several Python backends, including Jedi, Pyright, and python-lsp-server (<code>pylsp</code>).</p>
+
+        <p><b>Known issue:</b> if <code>*.xsh</code> / <code>*.xonshrc</code> files are registered as Python in your IDE (which PyCharm may suggest), the plugin will not work on them. To fix it, go to Settings → Editor → File Types → Python and remove xsh extensions, then restart the IDE.</p>
     ]]></description>
 
     <depends>com.intellij.modules.lang</depends>

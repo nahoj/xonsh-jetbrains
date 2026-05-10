@@ -24,7 +24,7 @@ Features are basically that of [xonsh-language-server](https://github.com/FoamSc
 
 - IntelliJ-based IDE (PyCharm, etc.) v2024.2+
 - [LSP4IJ plugin](https://plugins.jetbrains.com/plugin/23257-lsp4ij) (installed automatically)
-- [xonsh-lsp](https://github.com/FoamScience/xonsh-language-server) (package-run automatically with `uvx` or `pipx` by default)
+- [xonsh-lsp](https://github.com/FoamScience/xonsh-language-server) (package-run with `uvx` or `pipx` by default)
   - If installed manually, either put it in your `PATH` or specify a custom command in Language Server settings after installing the plugin.
   - The Python backend server can also be selected in Language Server settings.
   - ℹ️ As of 05/2026, `xonsh-lsp` doesn't work if installed with `mise` (starts but doesn't start its backend).
