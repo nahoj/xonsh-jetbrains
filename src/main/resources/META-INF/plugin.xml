@@ -4,7 +4,7 @@
     <name>Xonsh</name>
     <vendor>Johan Grande</vendor>
     <description><![CDATA[
-        <a href="https://xon.sh/">Xonsh</a> shell script support:
+        <p><a href="https://xon.sh/">Xonsh</a> shell script support:</p>
         <ul>
             <li>Syntax highlighting</li>
             <li>Code completion</li>
@@ -16,9 +16,17 @@
 
         <p>Most features are provided by <a href="https://github.com/FoamScience/xonsh-language-server">xonsh-language-server</a> via <a href="https://plugins.jetbrains.com/plugin/23257-lsp4ij">LSP4IJ</a>. The plugin includes a TextMate grammar for syntax highlighting outside LSP scope.</p>
 
-        <p><code>xonsh-lsp</code> is run with <code>uvx</code> or <code>pipx</code> by default. If installed manually, either put it on your <code>PATH</code> or specify a custom command in Language Server settings. <code>xonsh-lsp</code> supports several Python backends, including <a href="https://github.com/davidhalter/jedi">Jedi</a> (built-in), <a href="https://github.com/microsoft/pyright">Pyright</a>, and <a href="https://github.com/python-lsp/python-lsp-server">python-lsp-server</a> (<code>pylsp</code>).</p>
+        <p><code>xonsh-lsp</code> is run via <code>uvx</code> or <code>pipx</code> unless found in <code>PATH</code> or specified in Language Server settings.</p>
 
-        <p><b>Known issue:</b> if <code>*.xsh</code> / <code>*.xonshrc</code> files are registered as Python in your IDE (which PyCharm may suggest), the plugin will not work on them. To fix it, go to Settings → Editor → File Types → Python and remove xsh extensions, then restart the IDE.</p>
+        <h3>Python LSP backend</h3>
+        <p><code>xonsh-lsp</code> uses one of several Python backends (in Language Server settings):</p>
+        <ul>
+            <li><a href="https://github.com/davidhalter/jedi">jedi</a> (default, built-in), <a href="https://github.com/microsoft/pyright">pyright</a>, and <a href="https://github.com/python-lsp/python-lsp-server">pylsp</a> work well out of the box.</li>
+            <li><code>basedpyright</code>, <code>ty</code>, and <code>lsp-proxy</code> don't work as well as of 05/2026.</li>
+        </ul>
+
+        <h3>Known issue</h3>
+        <p>If <code>*.xsh</code> / <code>*.xonshrc</code> files are registered as Python in your IDE (which PyCharm may suggest), the plugin will not work on them. To fix it, go to Settings → Editor → File Types → Python and remove xsh extensions, then restart the IDE.</p>
     ]]></description>
 
     <depends>com.intellij.modules.lang</depends>

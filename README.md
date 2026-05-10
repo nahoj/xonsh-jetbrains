@@ -20,22 +20,27 @@ Features are basically that of [xonsh-language-server](https://github.com/FoamSc
 - Go To Declaration, Show/Find Usages
 - and more
 
-## Prerequisites
+## Install
+### Prerequisites
 
-- IntelliJ-based IDE (PyCharm, etc.) v2024.2+
-- [LSP4IJ plugin](https://plugins.jetbrains.com/plugin/23257-lsp4ij) (installed automatically)
-- [xonsh-lsp](https://github.com/FoamScience/xonsh-language-server) (package-run with `uvx` or `pipx` by default)
-  - If installed manually, either put it in your `PATH` or specify a custom command in Language Server settings after installing the plugin.
-  - `xonsh-lsp` supports several Python backends, including [Jedi](https://github.com/davidhalter/jedi) (built-in), [Pyright](https://github.com/microsoft/pyright), and [python-lsp-server](https://github.com/python-lsp/python-lsp-server) (`pylsp`), also in Language Server settings.
-  - ℹ️ As of 05/2026, `xonsh-lsp` doesn't work if installed/run with `mise` (starts but doesn't start its backend).
+IntelliJ-based IDE (PyCharm, etc.) v2024.2+ with [LSP4IJ plugin](https://plugins.jetbrains.com/plugin/23257-lsp4ij) (installed automatically).
+
+[xonsh-lsp](https://github.com/FoamScience/xonsh-language-server) is run via `uvx` or `pipx` unless installed in `PATH` or specified in Language Server settings. ℹ️ As of 05/2026, `xonsh-lsp` doesn't work if installed/run with `mise` (starts but doesn't start its backend).
 
 The plugin is known to work on Linux and macOS. I expect it to work on Windows if `xonsh-lsp` does as well.
 
-## ⚠️ Known Issue
+### Python LSP backend
+
+`xonsh-lsp` supports several Python backends:
+- [jedi](https://github.com/davidhalter/jedi) (default, built-in), [pyright](https://github.com/microsoft/pyright), and [pylsp](https://github.com/python-lsp/python-lsp-server) work well out of the box.
+- `basedpyright`, `ty`, and `lsp-proxy` don't work as well as of 05/2026.
+
+### ⚠️ Known Issue
 
 If `*.xsh` / `*.xonshrc` files are registered as Python in your IDE (which PyCharm may suggest), the plugin will not work on them. To fix it, go to Settings → Editor → File Types → Python and remove xsh extensions, then restart the IDE.
 
-## Install from source
+## Development
+### Build from source
 
 Requires JDK 21 (will download on build if you don't have it installed).
 
@@ -45,7 +50,7 @@ Requires JDK 21 (will download on build if you don't have it installed).
 
 The package is created in `./build/distributions/`
 
-## Sandbox IDE
+### Sandbox IDE
 
 `./gradlew runIde` launches a sandbox IDE with the plugin loaded.
 
@@ -59,8 +64,8 @@ localIdePath=/snap/pycharm-community/current
 
 ## Credits
 
-Syntax highlighting uses the TextMate grammar from [vscode-xonsh](https://github.com/jnoortheen/vscode-xonsh), itself based on [MagicPython](https://github.com/MagicStack/MagicPython).
+Most features are provided by [xonsh-language-server](https://github.com/FoamScience/xonsh-language-server).
 
-Other features are provided by [xonsh-language-server](https://github.com/FoamScience/xonsh-language-server).
+Syntax highlighting outside LSP scope uses the TextMate grammar from [vscode-xonsh](https://github.com/jnoortheen/vscode-xonsh), itself based on [MagicPython](https://github.com/MagicStack/MagicPython).
 
 Logo [from the Xonsh project](https://github.com/xonsh/logo) (MIT License).

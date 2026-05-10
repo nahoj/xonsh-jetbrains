@@ -61,13 +61,14 @@ object XonshInitializationOptionsContributor : ServerInitializationOptionsContri
   //
   // This JSON can use IDE macros such as $PROJECT_DIR$.
 
-  // Custom command for xonsh-lsp
+  // Custom command for xonsh-lsp.
+  // This option is interpreted by the plugin and ignored by xonsh-lsp itself.
   //"serverCommand": ["/path/to/xonsh-lsp"],
 
-  // Python analysis backend, one of:
-  // - "jedi" (built-in), "pyright", "pylsp": work well out of the box.
-  // - "basedpyright", "ty", "lsp-proxy": don't work as well as of 05/2026.
-  //"pythonBackend": "jedi",
+  // Python analysis backend. See https://github.com/nahoj/xonsh-jetbrains#Install for current recommendations.
+  //"pythonBackend": "jedi", // default, built-in
+  //"pythonBackend": "pyright",
+  //"pythonBackend": "pylsp",
 
   // Custom command for the "lsp-proxy" backend (not needed for named backends)
   //"pythonBackendCommand": ["my-lsp-server", "--stdio"],
