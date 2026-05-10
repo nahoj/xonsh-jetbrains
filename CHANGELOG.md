@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 1.2.0 - 2026-05-10
+
 ### Added
 
 - xonsh-lsp command and Python backend can now be configured in Language Server settings.
