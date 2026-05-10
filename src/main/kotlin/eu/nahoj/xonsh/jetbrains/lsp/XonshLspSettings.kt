@@ -64,8 +64,9 @@ object XonshInitializationOptionsContributor : ServerInitializationOptionsContri
   // Custom command for xonsh-lsp
   //"serverCommand": ["/path/to/xonsh-lsp"],
 
-  // Python analysis backend: "jedi" (built-in), "pyright", "basedpyright", "pylsp", "ty", or "lsp-proxy"
-  // As of this writing, jedi, pyright, and pylsp work well out of the box. basedpyright and ty don't as well.
+  // Python analysis backend, one of:
+  // - "jedi" (built-in), "pyright", "pylsp": work well out of the box.
+  // - "basedpyright", "ty", "lsp-proxy": don't work as well as of 05/2026.
   //"pythonBackend": "jedi",
 
   // Custom command for the "lsp-proxy" backend (not needed for named backends)

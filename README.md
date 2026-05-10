@@ -1,11 +1,11 @@
 [![JetBrains Marketplace](https://img.shields.io/jetbrains/plugin/v/31595?label=Marketplace)](https://plugins.jetbrains.com/plugin/31595)
 [![JetBrains Marketplace Downloads](https://img.shields.io/jetbrains/plugin/d/31595)](https://plugins.jetbrains.com/plugin/31595)
-![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/nahoj/xonsh-jetbrains/total)
-![GitHub commits since latest release](https://img.shields.io/github/commits-since/nahoj/xonsh-jetbrains/latest)
+[![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/nahoj/xonsh-jetbrains/total)](https://github.com/nahoj/xonsh-jetbrains/releases)
+[![GitHub commits since latest release](https://img.shields.io/github/commits-since/nahoj/xonsh-jetbrains/latest)](https://github.com/nahoj/xonsh-jetbrains/commits)
 
 This is a plugin that adds [Xonsh](https://xon.sh/) language support to JetBrains IDEs (IntelliJ, PyCharm, etc.).
 
-You can install it directly from your IDE, or from the [Marketplace](https://plugins.jetbrains.com/plugin/31595), the [Releases](https://github.com/nahoj/xonsh-jetbrains/releases) page, or build it from source (see below).
+You can install it from your IDE or the [Marketplace](https://plugins.jetbrains.com/plugin/31595), or build it from source (see below).
 
 **Status:** It works. I intend to fix bugs and possibly make improvements over time. Issues and PRs are welcome!
 
@@ -26,8 +26,8 @@ Features are basically that of [xonsh-language-server](https://github.com/FoamSc
 - [LSP4IJ plugin](https://plugins.jetbrains.com/plugin/23257-lsp4ij) (installed automatically)
 - [xonsh-lsp](https://github.com/FoamScience/xonsh-language-server) (package-run with `uvx` or `pipx` by default)
   - If installed manually, either put it in your `PATH` or specify a custom command in Language Server settings after installing the plugin.
-  - The Python backend server can also be selected in Language Server settings.
-  - ℹ️ As of 05/2026, `xonsh-lsp` doesn't work if installed with `mise` (starts but doesn't start its backend).
+  - `xonsh-lsp` supports several Python backends, including [Jedi](https://github.com/davidhalter/jedi) (built-in), [Pyright](https://github.com/microsoft/pyright), and [python-lsp-server](https://github.com/python-lsp/python-lsp-server) (`pylsp`), also in Language Server settings.
+  - ℹ️ As of 05/2026, `xonsh-lsp` doesn't work if installed/run with `mise` (starts but doesn't start its backend).
 
 The plugin is known to work on Linux and macOS. I expect it to work on Windows if `xonsh-lsp` does as well.
 

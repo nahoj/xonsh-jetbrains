@@ -1,9 +1,10 @@
-.gradle/
-.idea/
-.intellijPlatform
+/.gradle
+/.idea
+/.intellijPlatform
 /.kotlin
-build/
-out/
+/.venv
+/build
+/out
 
 /local.properties
 *.iml
