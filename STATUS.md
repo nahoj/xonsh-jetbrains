@@ -20,11 +20,6 @@
   `PathManager.getSystemDir()/xonsh-textmate/xonsh/` because the TM plugin reads
   bundles from a real filesystem `Path` (NIO), not from the jar.
 
-- **Executable resolution**: EnvironmentUtil.getValue("PATH") to locate `xonsh-lsp`
-  since an IDE launched in GUI mode does not inherit the shell PATH. The executable
-  is passed via the ProcessStreamConnectionProvider constructor (the `commands` field
-  is read directly in start(), not via a getCommands() override).
-
 ## Backlog / discussed but not started
 
 - Icon for the FileType (null for now)

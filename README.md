@@ -24,17 +24,14 @@ Features are basically that of [xonsh-language-server](https://github.com/FoamSc
 
 - IntelliJ-based IDE (PyCharm, etc.) v2024.2+
 - [LSP4IJ plugin](https://plugins.jetbrains.com/plugin/23257-lsp4ij) (installed automatically)
-- `xonsh-lsp` must be installed **and in your `$PATH`**. Install with e.g.:
-   ```sh
-   uv tool install 'xonsh-lsp[jedi]'
-   # or
-   pipx install 'xonsh-lsp[jedi]'
-   # mise use -g 'pipx:xonsh-lsp[jedi]' was not working: LSP4IJ couldn't start it.
-   ```
+- [xonsh-lsp](https://github.com/FoamScience/xonsh-language-server) (package-run automatically with `uvx` or `pipx` by default)
+  - If installed manually, either put it in your `PATH` or specify a custom command in Language Server settings after installing the plugin.
+  - The Python backend server can also be selected in Language Server settings.
+  - ℹ️ As of 05/2026, `xonsh-lsp` doesn't work if installed with `mise` (starts but doesn't start its backend).
 
 The plugin is known to work on Linux and macOS. I expect it to work on Windows if `xonsh-lsp` does as well.
 
-## Known Issue
+## ⚠️ Known Issue
 
 If `*.xsh` / `*.xonshrc` files are registered as Python in your IDE (which PyCharm may suggest), the plugin will not work on them. To fix it, go to Settings → Editor → File Types → Python and remove xsh extensions, then restart the IDE.
 
