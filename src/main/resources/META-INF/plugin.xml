@@ -46,7 +46,10 @@
         <server
             id="xonsh"
             name="Xonsh Language Server"
-            factoryClass="eu.nahoj.xonsh.jetbrains.lsp.XonshLspServerFactory"/>
+            factoryClass="eu.nahoj.xonsh.jetbrains.lsp.XonshLspServerFactory"
+            lastDocumentDisconnectedTimeout="300"/>
+        <!--With the setting above, on last file close, the server switches to "Stopping" status for 5 minutes.-->
+        <!--To stop it immediately from the tool window, do Restart, then Stop.-->
         <fileNamePatternMapping
             serverId="xonsh"
             patterns="*.xsh;.xonshrc;xonshrc"

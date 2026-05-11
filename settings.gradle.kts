@@ -3,7 +3,6 @@ rootProject.name = "xonsh-jetbrains"
 pluginManagement {
     repositories {
         gradlePluginPortal()
-        mavenCentral()
     }
 }
 
