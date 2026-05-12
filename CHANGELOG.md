@@ -5,6 +5,10 @@
 
 - Keep xonsh-lsp alive for 5 minutes after last file close.
 
+### Fixed
+
+- TextMate: Don't highlight xonsh backtick globbing as `invalid.deprecated.backtick.python`
+
 
 ## 1.2.1 - 2026-05-10
 ### Changed
