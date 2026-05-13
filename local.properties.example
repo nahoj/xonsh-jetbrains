@@ -1,0 +1,4 @@
+# Local IDE used for build
+#localIdePath=/home/YOU/.local/share/JetBrains/Toolbox/apps/intellij-idea
+#localIdePath=/snap/pycharm/current
+#localIdePath=/Applications/PyCharm.app/Contents
