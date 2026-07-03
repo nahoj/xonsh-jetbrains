@@ -4,8 +4,8 @@ import java.util.*
 plugins {
     id("java")
     id("org.jetbrains.changelog") version "2.5.0"
-    id("org.jetbrains.kotlin.jvm") version "2.3.21"
-    id("org.jetbrains.intellij.platform") version "2.16.0"
+    id("org.jetbrains.kotlin.jvm") version "2.4.0"
+    id("org.jetbrains.intellij.platform") version "2.17.0"
 }
 
 group = "eu.nahoj.xonsh"
