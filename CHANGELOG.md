@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Fixed
+
+- Replace deprecated method call
+
 ## 1.3.0 - 2026-05-13
 
 ### Changed
