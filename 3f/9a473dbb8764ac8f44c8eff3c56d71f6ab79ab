@@ -1,0 +1,19 @@
+src/main/kotlin/eu/nahoj/xonsh/jetbrains/lsp/XonshLspServer.kt
+  s_79daefc51b6054::t_625fd8e60a663b 5,15-20,23-31
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "3f9a473dbb8764ac8f44c8eff3c56d71f6ab79ab",
+  "prompts": {},
+  "sessions": {
+    "s_79daefc51b6054": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7bba7ac9-d7b8-4213-9e15-e1f75dc42aef",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Johan Grande <nahoj@crans.org>"
+    }
+  }
+}
