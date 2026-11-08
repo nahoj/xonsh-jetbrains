@@ -1,0 +1,14 @@
+STATUS.md
+  h_96cd7f7b70c4c3 27-74
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "b5fe7f13be8832f3065209ed09c43b1d8e983cb8",
+  "prompts": {},
+  "humans": {
+    "h_96cd7f7b70c4c3": {
+      "author": "Johan Grande <nahoj@crans.org>"
+    }
+  }
+}
