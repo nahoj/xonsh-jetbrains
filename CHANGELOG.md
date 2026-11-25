@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Changed
+
+- Bump build chain versions
+
 ### Fixed
 
 - Replace deprecated method call
