@@ -98,7 +98,7 @@ kotlin {
     }
 }
 
-val resolveGrammar by tasks.registering(Exec::class) {
+val resolveGrammar = tasks.register<Exec>("resolveGrammar") {
     description = "Compile TextMate grammar JSON from vscode-xonsh's source YAML"
     group = "build"
     // TODO either make vscode-xonsh a proper submodule/dependency, or fork the grammar files

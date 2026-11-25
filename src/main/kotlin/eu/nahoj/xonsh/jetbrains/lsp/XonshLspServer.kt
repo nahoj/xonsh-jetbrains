@@ -2,7 +2,6 @@ package eu.nahoj.xonsh.jetbrains.lsp
 
 import com.intellij.execution.configurations.PathEnvironmentVariableUtil
 import com.intellij.openapi.project.Project
-import com.intellij.util.system.OS
 import com.redhat.devtools.lsp4ij.server.ProcessStreamConnectionProvider
 
 class XonshLspServer(project: Project, customCommand: List<String>? = null) : ProcessStreamConnectionProvider(
@@ -24,10 +23,7 @@ class XonshLspServer(project: Project, customCommand: List<String>? = null) : Pr
         /// Looks up [baseName] in the real user PATH, as opposed to the environment from
         /// which the IDE was run. Handles the Windows executable extensions (.exe, .bat...).
         private fun findExecutable(baseName: String): String? =
-            if (OS.CURRENT == OS.Windows) {
-                PathEnvironmentVariableUtil.findExecutableInWindowsPath(baseName, null)
-            } else {
-                PathEnvironmentVariableUtil.findInPath(baseName)?.absolutePath
-            }
+            // Deprecated method but the replacement is since 2026.3 and @Experimental
+            PathEnvironmentVariableUtil.findExecutableInPathOnAnyOS(baseName)?.absolutePath
     }
 }
