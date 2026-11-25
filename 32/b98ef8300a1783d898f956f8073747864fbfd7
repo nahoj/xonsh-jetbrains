@@ -1,0 +1,19 @@
+gradlew.bat
+  s_9242fa62da51ad::t_dab7364d4b2146 1-112
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "32b98ef8300a1783d898f956f8073747864fbfd7",
+  "prompts": {},
+  "sessions": {
+    "s_9242fa62da51ad": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b29f43a5-9d55-47e0-9917-3cdeef3ba349",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Johan Grande <nahoj@crans.org>"
+    }
+  }
+}
