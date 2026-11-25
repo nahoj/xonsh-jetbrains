@@ -8,7 +8,7 @@ buildscript {
     dependencies {
         constraints {
             classpath("com.fasterxml.jackson.core:jackson-core:2.21.7")
-            classpath("com.fasterxml.jackson.core:jackson-databind:2.21.7")
+            classpath("com.fasterxml.jackson.core:jackson-databind:2.23.0")
             classpath("org.jsoup:jsoup:1.23.2")
         }
     }
