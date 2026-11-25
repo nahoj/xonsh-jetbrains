@@ -1,0 +1,21 @@
+build.gradle.kts
+  s_9242fa62da51ad::t_caa3328b1e0f7d 1,64-75
+  s_9242fa62da51ad::t_b6c9404bbb8950 5-16
+  s_9242fa62da51ad::t_3e7d1bb5300b70 20-21,56
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "fa760eadca4922590253cfa0f198718e410c8dd4",
+  "prompts": {},
+  "sessions": {
+    "s_9242fa62da51ad": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b29f43a5-9d55-47e0-9917-3cdeef3ba349",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Johan Grande <nahoj@crans.org>"
+    }
+  }
+}
